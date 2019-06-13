@@ -44,6 +44,46 @@ img{
 }
 /* public end */
 
+.bg{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+}
+.bg .top{
+	position: absolute;
+	top: 0.25rem;
+	left: 0.25rem;
+	right: 0.25rem;
+	bottom: 3.31rem;
+	background-color: #000064;
+	overflow: hidden;
+}
+.bg .top .circle{
+	position: absolute;
+	top: -1.2rem;
+	left: 50%;
+	width: 10rem;
+	margin-left: -5rem;
+}
+.bg .bottom{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 5.64rem;
+}
+.bg .border{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0.25rem solid #00ff00;
+}
+/* bg end */
+
 .lighting{
 	-webkit-animation: lighting 3s ease infinite;
 }
@@ -51,6 +91,14 @@ img{
 	0%{opacity: 0.3;}
 	50%{opacity: 1;}
 	100%{opacity: 0.3;}
+}
+
+.rotating{
+	-webkit-animation: rotating 10s linear infinite;
+}
+@-webkit-keyframes rotating{
+	0%{transform: rotate(0);}
+	100%{transform: rotate(360deg);}
 }
 /* anime end */
 
@@ -99,21 +147,239 @@ img{
 }
 #indexBox .boxB .dialogm{
 	position: absolute;
-	top: 2.43rem;
+	top: 2.04rem;
 	right: 0.33rem;
 	height: 0.78rem;
 }
 #indexBox .boxB .d1{
-	top: 1.39rem;
+	top: 1.14rem;
 }
 #indexBox .boxB .d3{
-	top: 3.49rem;
+	top: 3.04rem;
 }
 #indexBox .boxB .d4{
-	top: 4.7rem;
+	top: 4.04rem;
 }
 /* indexBox end */
 
+#introBox .title{
+	position: absolute;
+	top: 0.55rem;
+	left: 50%;
+	width: 4.6rem;
+	margin-left: -2.3rem;
+}
+#introBox .word{
+	position: absolute;
+	top: 2.5rem;
+	left: 50%;
+	width: 3.44rem;
+	margin-left: -1.72rem;
+}
+#introBox .bed{
+	position: absolute;
+	bottom: 0rem;
+	left: 50%;
+	width: 5.2rem;
+	margin-left: -2.6rem;
+}
+#introBox .dan,#introBox .danP{
+	position: absolute;
+	bottom: 3.2rem;
+	left: 50%;
+	width: 2.7rem;
+	margin-left: -1.35rem;
+}
+#introBox .btn{
+	position: absolute;
+	bottom: 0.3rem;
+	left: 50%;
+	width: 2.7rem;
+	height: 0.69rem;
+	margin-left: -1.35rem;
+	background-image: url(../images/intro/b.png);
+}
+/* introBox end */
+
+#gameBox .title{
+	position: absolute;
+	top: 0.55rem;
+	left: 50%;
+	width: 4.6rem;
+	margin-left: -2.3rem;
+}
+#gameBox .cont{
+	position: absolute;
+	top: 2.65rem;
+	left: 0;
+	right: 0;
+	bottom: 0.5rem;
+}
+#gameBox .cont:before{
+	content: "";
+	position: absolute;
+	top: 0.6rem;
+	left: 0.5rem;
+	right: 0.5rem;
+	bottom: 1.4rem;
+	background-color: #29abe2;
+	border: 0.05rem solid #000;
+}
+#gameBox .cont .readyBox,#gameBox .cont .gameBox{
+	position: absolute;
+	top: 0;
+	left: 0.8rem;
+	right: 0.8rem;
+	bottom: 0;
+	z-index: 2;
+	background-color: #000064;
+	border: 0.05rem solid #00ff00;
+}
+#gameBox .cont .readyBox .num{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	font-size: 2.6rem;
+	text-align: center;
+	color: #00ff00;
+	transform: translate(0, -65%);
+}
+#gameBox .cont .readyBox .tips{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	font-size: 0.24rem;
+	letter-spacing: 0.03rem;
+	text-align: center;
+	font-weight: bold;
+	color: #00ff00;
+	margin-top: 2rem;
+}
+#gameBox .cont .time{
+	position: absolute;
+	top: -0.45rem;
+	left: 50%;
+	width: 2.04rem;
+	height: 0.89rem;
+	background-image: url(../images/game/time.png); 
+	margin-left: -1.02rem;
+	z-index: 3;
+	color: #00ff00;
+	text-align: center;
+	line-height: 1rem;
+	font-size: 0.4rem;
+}
+
+#gameBox .cont .gameBox{
+	background-color: #e3e3e3;
+	border-color: #000;
+}
+#gameBox .cont .gameBox .road{
+	position: absolute;
+	left: 0;
+	bottom: 0.15rem;
+	width: 100%;
+	height: 80%;
+}
+
+/* gameBox end */
+#resultBox .topBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transform: scale(0.87,0.87);
+}
+#resultBox .title{
+	position: absolute;
+	top: 0.5rem;
+	left: 50%;
+	width: 4.6rem;
+	margin-left: -2.3rem;
+}
+#resultBox .word{
+	position: absolute;
+	top: 2.2rem;
+	left: 50%;
+	width: 4.55rem;
+	margin-left: -2.275rem;
+}
+#resultBox .dan{
+	position: absolute;
+	top: 3.05rem;
+	left: 50%;
+	width: 4.11rem;
+	height: 5.91rem;
+	margin-left: -2.055rem;
+	background-image: url(../images/result/d.png);
+}
+#resultBox .dan .scoreBox{
+	position: absolute;
+	bottom: 0.32rem;
+	left: 50%;
+	width: 3.27rem;
+	height: 0.39rem;
+	margin-left: -1.635rem;
+	background-image: url(../images/result/score.png);
+}
+#resultBox .dan .scoreBox .score{
+	position: absolute;
+	top: 0.1rem;
+	left: 2.41rem;
+	width: 0.5rem;
+	font-size: 0.2rem;
+	text-align: center;
+	transform: rotate(-10deg);
+}
+
+#resultBox .tips{
+	position: absolute;
+	bottom: 1.05rem;
+	left: 50%;
+	width: 4.71rem;
+	margin-left: -2.355rem;
+}
+#resultBox .btnBox{
+	position: absolute;
+	bottom: 0.33rem;
+	left: 50%;
+	margin-left: -2rem;
+	width: 4rem;
+	height: 0.63rem;
+	background-image: url(../images/result/btns.png);
+}
+#resultBox .btnBox .btn{
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+
+/* resultBox end */
 /*---------------------------------------- 15:9 ----------------------*/
 
 /*---------------------------------------- 18:9 ----------------------*/
+.screen189 #indexBox .boxB .d1{
+	top: 1.49rem;
+}
+.screen189 #indexBox .boxB .d2{
+	top: 2.63rem;
+}
+.screen189 #indexBox .boxB .d3{
+	top: 3.79rem;
+}
+.screen189 #indexBox .boxB .d4{
+	top: 5rem;
+}
+.screen189 #introBox .bed{
+	bottom: 0.2rem;
+}
+.screen189 #introBox .dan,.screen189 #introBox .danP{
+	bottom: 3.4rem;
+	width: 3rem;
+	margin-left: -1.5rem;
+}
+.screen189 #introBox .btn{
+	bottom: 0.4rem;
+}

@@ -35,7 +35,7 @@ $(document).ready(function(){
 
 	//----------------------------------------页面逻辑代码----------------------------------------
 	var indexBox =  $("#indexBox");
-	var intoBox =  $("#intoBox");
+	var introBox =  $("#introBox");
 	var gameBox =  $("#gameBox");
 	var resultBox =  $("#resultBox");	
 
@@ -44,7 +44,7 @@ $(document).ready(function(){
 	 */
 	function pageInit(){
 		eventInit();
-		// DevelopTest();
+		DevelopTest();
 		monitor_handler();
 	}//end func
 	
@@ -52,8 +52,8 @@ $(document).ready(function(){
 	 * 开发测试使用
 	 */
 	function DevelopTest(){
-		loadingBox.hide();
-		QABox.show();
+		indexBox.hide();
+		gameBox.show();
 	}
 
 	/**
