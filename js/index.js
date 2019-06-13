@@ -11,6 +11,7 @@ $(document).ready(function(){
 	
 	function init(){
 		requestAnimationFrame(function(){
+			loadBox.show();
 			if(os.screenProp < 0.54) articleBox.addClass("screen189");
 			if(os.screenProp > 0.64) articleBox.addClass("screen159");
 			load_handler();
@@ -23,34 +24,20 @@ $(document).ready(function(){
 		var loader = new PxLoader();
 		loader.addImage('images/common/turn_phone.png');
 		
-		//实际加载进度
-//		loader.addProgressListener(function(e) {
-//			var per=Math.round(e.completedCount/e.totalCount*50);
-//			loadPer.html(per+'%');
-//		});
-		
 		loader.addCompletionListener(function() {
 			pageInit();
-//			load_timer(50);//模拟加载进度
+			icom.fadeOut(loadBox);
 			icom.fadeIn(articleBox);
 			loader=null;
 		});
 		loader.start();	
 	}//end func
-	
-	//模拟加载进度
-	function load_timer(per){
-		per=per||0;
-		per+=imath.randomRange(1,3);
-		per=per>100?100:per;
-		loadPer.html(per+'%');
-		if(per==100) setTimeout(pageInit,200);
-		else setTimeout(load_timer,33,per);
-	}//edn func
-	
-	//----------------------------------------页面逻辑代码----------------------------------------
 
-	
+	//----------------------------------------页面逻辑代码----------------------------------------
+	var indexBox =  $("#indexBox");
+	var intoBox =  $("#intoBox");
+	var gameBox =  $("#gameBox");
+	var resultBox =  $("#resultBox");	
 
 	/**
 	 * 页面初始化

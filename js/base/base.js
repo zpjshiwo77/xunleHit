@@ -69,7 +69,7 @@ function importBase() {
 	var base = {}
 	base.dir = 'portrait';
 	base.lock = false;
-	base.cssMedia = 750;
+	base.cssMedia = 564;
 	base.scrollTop = -1;
 	base.iphoneXOffsetLandscape=45;//以iphoneX在微信横屏下有效内容区域722x343为准，并同比缩放对齐iphonePlus的736x350
 	base.iphoneXOffsetPortrait=35;
