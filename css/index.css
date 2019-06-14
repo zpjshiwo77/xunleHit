@@ -100,19 +100,56 @@ img{
 	0%{transform: rotate(0);}
 	100%{transform: rotate(360deg);}
 }
+.Emphasize{
+	-webkit-animation: Emphasize 2s ease infinite;
+}
+@-webkit-keyframes Emphasize{
+	0%{transform: scale(1);}
+	50%{transform: scale(1.1);}
+	100%{transform: scale(1);}
+}
+
+.tentering{
+	-webkit-animation: tentering2 0.5s 0.5s ease forwards;
+	transform-origin: bottom center;
+}
+.tentering2{
+	-webkit-animation: tentering2 0.4s 0.7s ease forwards;
+	transform-origin: top center;
+}
+@-webkit-keyframes tentering{
+	0%{transform: scale(0);opacity: 0;}
+	60%{transform: scale(1.1);opacity: 1;}
+	80%{transform: scale(0.9);opacity: 1;}
+	100%{transform: scale(1);opacity: 1;}
+}
+@-webkit-keyframes tentering2{
+	0%{transform: scale(0);opacity: 0;}
+	100%{transform: scale(1);opacity: 1;}
+}
+.falling{
+	-webkit-animation: falling 0.7s ease-out forwards;
+}
+@-webkit-keyframes falling{
+	0%{transform: translate(0,-15rem);}
+	80%{transform: translate(0,0);}
+	84%{transform: translate(0.05rem,0);}
+	88%{transform: translate(0.1rem,-0.05rem) rotate(4deg);}
+	92%{transform: translate(-0.07rem,0.05rem) rotate(-2deg);}
+	96%{transform: translate(-0.01rem,0.02rem) rotate(3deg);}
+	100%{transform: translate(0,0) rotate(0);}
+}
 /* anime end */
 
-#indexBox{
-	background: url(../images/index/bg.jpg) no-repeat;
-	background-size: cover;
-	background-position: center;
-}
 #indexBox .boxA{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background: url(../images/index/bg.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 #indexBox .boxA .time,#indexBox .boxB .up{
 	position: absolute;
@@ -171,7 +208,7 @@ img{
 }
 #introBox .word{
 	position: absolute;
-	top: 2.5rem;
+	top: 2.15rem;
 	left: 50%;
 	width: 3.44rem;
 	margin-left: -1.72rem;
@@ -276,12 +313,48 @@ img{
 	background-color: #e3e3e3;
 	border-color: #000;
 }
-#gameBox .cont .gameBox .road{
+#gameBox .cont .gameBox .road,#game{
 	position: absolute;
 	left: 0;
 	bottom: 0.15rem;
 	width: 100%;
 	height: 80%;
+}
+#game{
+	padding-top: 0.2rem;
+}
+#game .item{
+	float: left;
+	width: 1.04rem;
+	height: 0.87rem;
+	margin-left: 0.2rem;
+	margin-bottom: 0.55rem;
+	position: relative;
+}
+#game .item .dialog{
+	position: absolute;
+	top: -0.4rem;
+	left: 50%;
+	width: 1.8rem;
+	margin-left: -0.9rem;
+	z-index: 2;
+}
+#game .item .up,#game .item .down,#game .item .danBox{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 1.04rem;
+}
+#game .item .danBox{
+	height: 0.87rem;
+	overflow: hidden;
+}
+#game .item .dan{
+	width: 100%;
+	transform: translate(0, 100%);
+}
+#game .item .animeBox{
+	display: none;
 }
 
 /* gameBox end */
@@ -357,9 +430,20 @@ img{
 }
 
 /* resultBox end */
+
+#shareBox .share{
+	position: absolute;
+	right: 0.1rem;
+	top: 0.2rem;
+	width: 100%;
+}
+/* shareBox end */
 /*---------------------------------------- 15:9 ----------------------*/
 
 /*---------------------------------------- 18:9 ----------------------*/
+.screen189 #introBox .word{
+	top: 2.6rem;
+}
 .screen189 #indexBox .boxB .d1{
 	top: 1.49rem;
 }
@@ -382,4 +466,10 @@ img{
 }
 .screen189 #introBox .btn{
 	bottom: 0.4rem;
+}
+.screen189 #game{
+	padding-top: 0.5rem;
+}
+.screen189 #game .item{
+	margin-bottom: 0.9rem;
 }
