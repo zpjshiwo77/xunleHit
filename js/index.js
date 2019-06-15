@@ -112,6 +112,10 @@ $(document).ready(function(){
 		loader.addImage('images/common/turn_phone.png');
 		loader.addImage('images/common/turn_unlock.png');
 		loader.addImage('images/common/turn_yes.png');
+
+		for (var i = 0; i < 6; i++) {
+			loader.addImage('images/game/gif/'+i+'.png');
+		}
 		
 		loader.addCompletionListener(function() {
 			icom.fadeOut(loadBox);
@@ -155,9 +159,9 @@ $(document).ready(function(){
 		// introBoxAnime();
 		indexBox.hide();
 		// gameBox.show();
-		gameBoxShow();
+		// gameBoxShow();
 		// showGame();
-		// renderResultBox(15);
+		renderResultBox(15);
 	}
 
 	/**
@@ -302,7 +306,7 @@ $(document).ready(function(){
 		.attr("src","images/result/"+level+".png");
 		scoreBox.html(score);
 		dan.css({opacity:0});
-		tips.css({opacity:0});
+		tips.css({opacity:0,scale:0.1,y:"-3.5rem"});
 		btnBox.css({opacity:0});
 		
 		setTimeout(function(){
@@ -311,7 +315,7 @@ $(document).ready(function(){
 			title.addClass("tentering");
 			word.addClass("tentering2");
 			dan.transition({opacity:1,delay:1000});
-			tips.transition({opacity:1,delay:1300});
+			tips.transition({opacity:1,scale:1,y:0,delay:1300},800);
 			btnBox.transition({opacity:1,delay:1300});
 		},500);
 	}

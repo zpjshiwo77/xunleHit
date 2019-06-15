@@ -141,9 +141,22 @@ var hitGame = function () {
         score++;
         item.scoreFlag = false;
         item.animing = true;
-        item.eggBox.transition({opacity:0},function(){
-            item.animing = false;
-        });
+        item.eggBox.transition({opacity:0},200);
+        item.animeBox.transition({opacity:1},200);
+
+        var i = 0;
+        item.animeImg[0].src = "images/game/gif/"+i+".png";
+        var timer = setInterval(function(){
+            if(i < 5){
+                i++;
+                item.animeImg[0].src = "images/game/gif/"+i+".png";
+            }
+            else{
+                clearTimeout(timer);
+                item.animeBox.transition({opacity:0},200);
+                item.animing = false;
+            }
+        },66);
     }
 
     /**
@@ -168,7 +181,7 @@ var hitGame = function () {
         var cont = "";
         for (var i = 0; i < 9; i++) {
             
-            cont += '<div class="item" data-id="' + i + '"><img src="images/game/d1.png" class="dialog hide"><img src="images/game/x.png" class="up"><div class="danBox"><img src="images/game/1.png" class="dan"></div><img src="images/game/s.png" class="down"><div class="animeBox"></div></div>';
+            cont += '<div class="item" data-id="' + i + '"><img src="images/game/d1.png" class="dialog hide"><img src="images/game/x.png" class="up"><div class="danBox"><img src="images/game/1.png" class="dan"></div><img src="images/game/s.png" class="down"><div class="animeBox"><img src="images/game/gif/0.png"></div></div>';
         }
         box.append(cont);
         _DataInit();
@@ -195,6 +208,7 @@ var hitGame = function () {
                 egg: ele.find(".dan"),
                 eggBox: ele.find(".danBox"),
                 animeBox: ele.find(".animeBox"),
+                animeImg: ele.find(".animeBox img"),
                 eggMove: false,
                 dialogShow: false,
                 animing: false,
