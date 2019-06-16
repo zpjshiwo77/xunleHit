@@ -54,6 +54,10 @@ $(document).ready(function(){
 			src:"audio/wxtips.mp3",
 			autoplay:false,
 			loop:0
+		},{
+			src:"audio/time.mp3",
+			autoplay:false,
+			loop:0
 		}]);
 	}//end func
 	
@@ -66,7 +70,7 @@ $(document).ready(function(){
 		loader.addImage('images/result/2.png');
 		loader.addImage('images/result/3.png');
 		loader.addImage('images/result/btns.png');
-		loader.addImage('images/result/d.png');
+		loader.addImage('images/result/dan.png');
 		loader.addImage('images/result/score.png');
 		loader.addImage('images/result/t1.png');
 		loader.addImage('images/result/t2.png');
@@ -86,6 +90,7 @@ $(document).ready(function(){
 		loader.addImage('images/index/d2.png');
 		loader.addImage('images/index/d3.png');
 		loader.addImage('images/index/d4.png');
+		loader.addImage('images/index/d5.png');
 		loader.addImage('images/index/down.png');
 		loader.addImage('images/index/lock.png');
 		loader.addImage('images/index/time.png');
@@ -171,6 +176,7 @@ $(document).ready(function(){
 		introBox.find(".btn").on("touchend",fallAnime);
 		resultBox.find(".againBtn").on("touchend",againGame);
 		resultBox.find(".shareBtn").on("touchend",showShare);
+		indexBox.find(".d4").on("touchend",introBoxAnime);
 
 		$(".limitBtn").on("touchend",limitClick);
 	}
@@ -226,6 +232,8 @@ $(document).ready(function(){
 				showGame();
 			}
 		},1000);
+
+		Voice.time.play();
 	}
 
 	/**
@@ -355,14 +363,16 @@ $(document).ready(function(){
 
 		boxA.transition({opacity:0,delay:2000});
 		
-		for (var i = 1; i <= 4; i++) {
+		for (var i = 1; i <= 3; i++) {
 			var ele = boxB.find(".d"+i);
-			ele.transition({opacity:1,delay:2000+i*800},200);
+			ele.transition({opacity:1,delay:2000+i*1500},200);
 		}
 
-		setTimeout(function(){
-			introBoxAnime();
-		},6000);		
+		var btn = boxB.find(".d4");
+		btn.transition({opacity:1,delay:2000+4*1500},200,function(){
+			boxA.hide();
+			btn.find(".pdf").addClass("Emphasize");
+		});
 	}
 	
 	/**

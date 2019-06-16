@@ -196,6 +196,18 @@ img{
 }
 #indexBox .boxB .d4{
 	top: 4.04rem;
+	width: 3.47rem;
+}
+#indexBox .boxB .head{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+#indexBox .boxB .pdf{
+	float: right;
+	height: 100%;
+	transform-origin: center left;
 }
 /* indexBox end */
 
@@ -399,7 +411,7 @@ img{
 	width: 4.11rem;
 	height: 5.91rem;
 	margin-left: -2.055rem;
-	background-image: url(../images/result/d.png);
+	background-image: url(../images/result/dan.png);
 }
 #resultBox .dan .scoreBox{
 	position: absolute;
@@ -486,4 +498,13 @@ img{
 }
 .screen189 #game .item{
 	margin-bottom: 0.9rem;
+}
+.screen189 #resultBox .topBox{
+	top: 0.5rem;
+}
+.screen189 #resultBox .tips{
+	bottom: 1.8rem;
+}
+.screen189 #resultBox .btnBox{
+	bottom: 0.8rem;
 }

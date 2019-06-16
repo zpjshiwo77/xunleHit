@@ -7,6 +7,7 @@ var hitGame = function () {
     var score = 0;
     var gameTimer;
     var interval = 1000;
+    var level = 1;
 
     /**
      * 初始化
@@ -28,6 +29,19 @@ var hitGame = function () {
         gameTimer = setInterval(function(){
             _choseEgg();
         },interval);
+
+        setTimeout(function(){
+            _reSetInterval(700);
+            level = 2;
+        },10000);
+        setTimeout(function(){
+            _reSetInterval(550);
+            level = 3;
+        },20000);
+        setTimeout(function(){
+            _reSetInterval(400);
+            level = 4;
+        },25000);
     }
 
     /**
@@ -78,10 +92,6 @@ var hitGame = function () {
                 _eggMove(item);
             }
             else _choseEgg();
-
-            if(score > 5 && interval == 1000) _reSetInterval(800);
-            else if( score > 10 && interval == 800) _reSetInterval(600);
-            else if( score > 20 && interval == 600) _reSetInterval(400);
         }
     }
 
@@ -90,26 +100,14 @@ var hitGame = function () {
      */
     function _eggMove(item){
         var index = imath.randomRange(1, 3);
-        var time = 1000;
-        var moveTime = 500;
+        var time = 1400 - level * 200;
+        var moveTime = 700 - level * 100;
         item.egg[0].src = "images/game/"+index+".png";
         item.eggBox.css({opacity:1});
         item.egg.transition({y:0},moveTime);
         item.eggMove = true;
         item.scoreFlag = true;
 
-        if(score > 10) {
-            time = 800;
-            moveTime = 400;
-        }
-        else if( score > 20) {
-            time = 600;
-            moveTime = 300;
-        }
-        else if( score > 50) {
-            time = 400;
-            moveTime = 200;
-        }
         item.egg.transition({y:"100%",delay:time},moveTime,function(){
             item.eggMove = false;
             item.scoreFlag = false;
