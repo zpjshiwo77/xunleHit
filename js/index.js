@@ -47,7 +47,19 @@ $(document).ready(function(){
 			autoplay:false,
 			loop:0
 		},{
-			src:"audio/hit.mp3",
+			src:"audio/hit1.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/hit2.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/hit3.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/hit4.mp3",
 			autoplay:false,
 			loop:0
 		},{
@@ -56,6 +68,10 @@ $(document).ready(function(){
 			loop:0
 		},{
 			src:"audio/time.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/win.mp3",
 			autoplay:false,
 			loop:0
 		}]);
@@ -140,7 +156,7 @@ $(document).ready(function(){
 	var timeBox = gameBox.find(".time");
 
 	var iHitGame;
-	var gameTime = 30000;
+	var gameTime = 15000;
 
 	/**
 	 * 页面初始化
@@ -186,10 +202,10 @@ $(document).ready(function(){
 	 */
 	function againGame(){
 		iHitGame.gameReset();
-		gameTime = 30000;
+		gameTime = 15000;
 
 		gameBox.find(".readyBox").show();
-		timeBox.html("30:00");
+		timeBox.html("15:00");
 		gameBox.find(".num").html(3);
 		icom.fadeIn(gameBox,500,function(){
 			resultBox.hide();
@@ -209,7 +225,7 @@ $(document).ready(function(){
 	 */
 	function gameInit(){
 		iHitGame = new hitGame();
-		iHitGame.init($("#game"),Voice.hit);
+		iHitGame.init($("#game"),Voice);
 	}
 
 	/**
@@ -325,6 +341,7 @@ $(document).ready(function(){
 			dan.transition({opacity:1,delay:1000});
 			tips.transition({opacity:1,scale:1,y:0,delay:1300},800);
 			btnBox.transition({opacity:1,delay:1300});
+			Voice.win.play();
 		},500);
 	}
 

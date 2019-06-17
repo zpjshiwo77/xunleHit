@@ -8,6 +8,7 @@ var hitGame = function () {
     var gameTimer;
     var interval = 1000;
     var level = 1;
+    var voiceId = 1;
 
     /**
      * 初始化
@@ -31,17 +32,17 @@ var hitGame = function () {
         },interval);
 
         setTimeout(function(){
-            _reSetInterval(700);
+            _reSetInterval(600);
             level = 2;
-        },10000);
+        },3000);
         setTimeout(function(){
-            _reSetInterval(550);
+            _reSetInterval(350);
             level = 3;
-        },20000);
+        },5000);
         setTimeout(function(){
-            _reSetInterval(400);
+            _reSetInterval(250);
             level = 4;
-        },25000);
+        },10000);
     }
 
     /**
@@ -100,8 +101,8 @@ var hitGame = function () {
      */
     function _eggMove(item){
         var index = imath.randomRange(1, 3);
-        var time = 1400 - level * 200;
-        var moveTime = 700 - level * 100;
+        var time = 1200 - level * 200;
+        var moveTime = 600 - level * 100;
         item.egg[0].src = "images/game/"+index+".png";
         item.eggBox.css({opacity:1});
         item.egg.transition({y:0},moveTime);
@@ -124,7 +125,11 @@ var hitGame = function () {
             if(item.scoreFlag){
                 _getScoreAnime(item);
                 if(!item.dialogShow) _showEggDialog(item,true);
-                Voice.play();
+                Voice["hit"+voiceId].play();
+                voiceId = voiceId < 4 ? voiceId + 1 : 1;
+                setTimeout(function(){
+                    voiceId = voiceId > 1 ? voiceId - 1 : 1;
+                },600);
             }
             else if(!item.dialogShow){
                 _showEggDialog(item,false);
