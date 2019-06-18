@@ -125,11 +125,8 @@ var hitGame = function () {
             if(item.scoreFlag){
                 _getScoreAnime(item);
                 if(!item.dialogShow) _showEggDialog(item,true);
-                Voice["hit"+voiceId].play();
+                Voice["hit00"+voiceId].play();
                 voiceId = voiceId < 4 ? voiceId + 1 : 1;
-                setTimeout(function(){
-                    voiceId = voiceId > 1 ? voiceId - 1 : 1;
-                },600);
             }
             else if(!item.dialogShow){
                 _showEggDialog(item,false);

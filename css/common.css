@@ -143,7 +143,7 @@ aside.shareBox>img{ width:100%;}
 input[name=imageInput]{ position:absolute; left:0; top:0; width:1; height:1; opacity: 0; overflow: hidden; display: none;}
 
 /* 背景音乐按钮 */
-a.bgmBtn{ position: fixed; right: 0.24rem; top: 0.24rem; width: 0.58rem; height: 0.58rem; z-index: 9;}
+a.bgmBtn{ position: fixed; right: 0.35rem; top: 0.35rem; width: 0.58rem; height: 0.58rem; z-index: 9;display: none;}
 a.bgmPlay{ background-image: url(../images/common/bgm_on.png);}
 a.bgmStop{ background-image: url(../images/common/bgm_off.png);}
 

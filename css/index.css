@@ -108,6 +108,14 @@ img{
 	50%{transform: scale(1.1);}
 	100%{transform: scale(1);}
 }
+.Emphasize2{
+	-webkit-animation: Emphasize2 1.5s ease infinite;
+}
+@-webkit-keyframes Emphasize2{
+	0%{transform: scale(1);opacity: 0.5;}
+	50%{transform: scale(1.2);opacity: 1;}
+	100%{transform: scale(1);opacity: 0.5;}
+}
 
 .tentering{
 	-webkit-animation: tentering2 0.5s 0.5s ease forwards;
@@ -169,6 +177,13 @@ img{
 	left: 0.12rem;
 	width: 5.4rem;
 }
+#indexBox .boxA .enterBtn{
+	position: absolute;
+	top: 3.45rem;
+	left: 0.12rem;
+	width: 5.4rem;
+	height: 1rem;
+}
 #indexBox .boxB{
 	position: absolute;
 	top: 0;
@@ -186,7 +201,21 @@ img{
 	position: absolute;
 	top: 2.04rem;
 	right: 0.33rem;
+	width: 2.66rem;
 	height: 0.78rem;
+}
+#indexBox .boxB .dialogm .word{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 0.78rem;
+}
+#userHead{
+	position: absolute;
+	top: 0.05rem;
+	right: 0.05rem;
+	height: 0.68rem;
+	border-radius: 4px;
 }
 #indexBox .boxB .d1{
 	top: 1.14rem;
@@ -208,6 +237,7 @@ img{
 	float: right;
 	height: 100%;
 	transform-origin: center left;
+	opacity: 0.5;
 }
 /* indexBox end */
 
@@ -220,10 +250,10 @@ img{
 }
 #introBox .word{
 	position: absolute;
-	top: 2.15rem;
+	top: 2.4rem;
 	left: 50%;
-	width: 3.44rem;
-	margin-left: -1.72rem;
+	width: 3.47rem;
+	margin-left: -1.735rem;
 }
 #introBox .bed{
 	position: absolute;
@@ -417,14 +447,14 @@ img{
 	position: absolute;
 	bottom: 0.32rem;
 	left: 50%;
-	width: 3.27rem;
-	height: 0.39rem;
-	margin-left: -1.635rem;
+	width: 3.47rem;
+	height: 0.4rem;
+	margin-left: -1.735rem;
 	background-image: url(../images/result/score.png);
 }
 #resultBox .dan .scoreBox .score{
 	position: absolute;
-	top: 0.1rem;
+	top: 0.12rem;
 	left: 2.41rem;
 	width: 0.5rem;
 	font-size: 0.2rem;
@@ -468,7 +498,7 @@ img{
 
 /*---------------------------------------- 18:9 ----------------------*/
 .screen189 #introBox .word{
-	top: 2.6rem;
+	top: 3.1rem;
 }
 .screen189 #indexBox .boxB .d1{
 	top: 1.49rem;
