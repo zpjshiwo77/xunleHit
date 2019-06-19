@@ -5,7 +5,11 @@ $(document).ready(function(){
 	var articleBox=$('article');
 	var windowScale=window.innerWidth/750;
 	var Voice;
-	var userHead = "images/index/head.jpg";
+	var userInfo = {
+		head: "images/index/head.jpg",
+		openId: "test",
+		nickName: "测试用户",
+	};
 	
 	//----------------------------------------页面初始化----------------------------------------
 	icom.init(init);//初始化
@@ -24,7 +28,7 @@ $(document).ready(function(){
 	 * 用户授权
 	 */
 	function userInit(){
-		$("#userHead")[0].src = userHead;
+		$("#userHead")[0].src = userInfo.head;
 		sound_handler();
 	}
 
@@ -262,6 +266,15 @@ $(document).ready(function(){
 		},1000);
 
 		Voice.time.play();
+
+		var data = {
+			openid: userInfo.openId,
+			nickname: userInfo.nickName,
+			headimg: userInfo.head
+		}
+		API.PlayRecord(data,function(data){
+			console.log(data);
+		});
 	}
 
 	/**
@@ -317,6 +330,16 @@ $(document).ready(function(){
 	function gameEnd(){
 		iHitGame.gameEnd(function(score){
 			renderResultBox(score);
+
+			var data = {
+				openid: userInfo.openId,
+				nickname: userInfo.nickName,
+				headimg: userInfo.head,
+				score: score
+			}
+			API.ScoreRecord(data,function(data){
+				console.log(data);
+			});
 		});
 	}
 
