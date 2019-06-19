@@ -362,7 +362,7 @@ $(document).ready(function(){
 		title.removeClass("tentering")
 		.attr("src","images/result/t"+level+".png");
 		word.removeClass("tentering2")
-		.attr("src","images/result/"+level+".png?v=2");
+		.attr("src","images/result/"+level+".png");
 		scoreBox.html(score);
 		dan.css({opacity:0});
 		tips.css({opacity:0,scale:0.1,y:"-3.5rem"});
