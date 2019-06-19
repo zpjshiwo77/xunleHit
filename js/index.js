@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var articleBox=$('article');
 	var windowScale=window.innerWidth/750;
 	var Voice;
+	var userHead = "images/index/head.jpg";
 	
 	//----------------------------------------页面初始化----------------------------------------
 	icom.init(init);//初始化
@@ -15,10 +16,17 @@ $(document).ready(function(){
 			loadBox.show();
 			if(os.screenProp < 0.54) articleBox.addClass("screen189");
 			if(os.screenProp > 0.64) articleBox.addClass("screen159");
-			load_handler();
-			sound_handler();
+			userInit();
 		});
 	}//edn func
+
+	/**
+	 * 用户授权
+	 */
+	function userInit(){
+		$("#userHead")[0].src = userHead;
+		sound_handler();
+	}
 
 	function sound_handler(){
 		if(os.weixin){
@@ -47,14 +55,36 @@ $(document).ready(function(){
 			autoplay:false,
 			loop:0
 		},{
-			src:"audio/hit.mp3",
+			src:"audio/hit001.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/hit002.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/hit003.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/hit004.mp3",
 			autoplay:false,
 			loop:0
 		},{
 			src:"audio/wxtips.mp3",
 			autoplay:false,
 			loop:0
+		},{
+			src:"audio/time.mp3",
+			autoplay:false,
+			loop:0
+		},{
+			src:"audio/win.mp3",
+			autoplay:false,
+			loop:0
 		}]);
+		ibgm.init({src:"audio/bgm.mp3",autoplay:false})
+		load_handler();
 	}//end func
 	
 
@@ -66,7 +96,7 @@ $(document).ready(function(){
 		loader.addImage('images/result/2.png');
 		loader.addImage('images/result/3.png');
 		loader.addImage('images/result/btns.png');
-		loader.addImage('images/result/d.png');
+		loader.addImage('images/result/dan.png');
 		loader.addImage('images/result/score.png');
 		loader.addImage('images/result/t1.png');
 		loader.addImage('images/result/t2.png');
@@ -86,11 +116,13 @@ $(document).ready(function(){
 		loader.addImage('images/index/d2.png');
 		loader.addImage('images/index/d3.png');
 		loader.addImage('images/index/d4.png');
+		loader.addImage('images/index/d5.png');
 		loader.addImage('images/index/down.png');
 		loader.addImage('images/index/lock.png');
 		loader.addImage('images/index/time.png');
 		loader.addImage('images/index/tips.png');
 		loader.addImage('images/index/up.png');
+		loader.addImage('images/index/head.jpg');
 		loader.addImage('images/game/1.png');
 		loader.addImage('images/game/2.png');
 		loader.addImage('images/game/3.png');
@@ -135,7 +167,7 @@ $(document).ready(function(){
 	var timeBox = gameBox.find(".time");
 
 	var iHitGame;
-	var gameTime = 30000;
+	var gameTime = 15000;
 
 	/**
 	 * 页面初始化
@@ -171,6 +203,8 @@ $(document).ready(function(){
 		introBox.find(".btn").on("touchend",fallAnime);
 		resultBox.find(".againBtn").on("touchend",againGame);
 		resultBox.find(".shareBtn").on("touchend",showShare);
+		indexBox.find(".d4").on("touchend",introBoxAnime);
+		indexBox.find(".enterBtn").on("touchend",enterDialog);
 
 		$(".limitBtn").on("touchend",limitClick);
 	}
@@ -180,10 +214,10 @@ $(document).ready(function(){
 	 */
 	function againGame(){
 		iHitGame.gameReset();
-		gameTime = 30000;
+		gameTime = 15000;
 
 		gameBox.find(".readyBox").show();
-		timeBox.html("30:00");
+		timeBox.html("15:00");
 		gameBox.find(".num").html(3);
 		icom.fadeIn(gameBox,500,function(){
 			resultBox.hide();
@@ -203,7 +237,7 @@ $(document).ready(function(){
 	 */
 	function gameInit(){
 		iHitGame = new hitGame();
-		iHitGame.init($("#game"),Voice.hit);
+		iHitGame.init($("#game"),Voice);
 	}
 
 	/**
@@ -226,6 +260,8 @@ $(document).ready(function(){
 				showGame();
 			}
 		},1000);
+
+		Voice.time.play();
 	}
 
 	/**
@@ -303,7 +339,7 @@ $(document).ready(function(){
 		title.removeClass("tentering")
 		.attr("src","images/result/t"+level+".png");
 		word.removeClass("tentering2")
-		.attr("src","images/result/"+level+".png");
+		.attr("src","images/result/"+level+".png?v=2");
 		scoreBox.html(score);
 		dan.css({opacity:0});
 		tips.css({opacity:0,scale:0.1,y:"-3.5rem"});
@@ -317,6 +353,7 @@ $(document).ready(function(){
 			dan.transition({opacity:1,delay:1000});
 			tips.transition({opacity:1,scale:1,y:0,delay:1300},800);
 			btnBox.transition({opacity:1,delay:1300});
+			Voice.win.play();
 		},500);
 	}
 
@@ -346,23 +383,37 @@ $(document).ready(function(){
 	 */
 	function indexAnime(){
 		var boxA = indexBox.find(".boxA");
-		var boxB = indexBox.find(".boxB");
 		var tips = boxA.find(".tips");
 		
 		tips.css({y:"-0.5rem"})
-		.transition({y:0,opacity:1,delay:500},500);
+		.transition({y:0,opacity:1,delay:500},500,function(){
+			boxA.find(".enterBtn").removeClass("noPointer");
+		});
 		if(Voice) Voice.wxtips.play();
+	}
 
-		boxA.transition({opacity:0,delay:2000});
+	/**
+	 * 进入对话页面
+	 */
+	function enterDialog(){
+		var boxA = indexBox.find(".boxA");
+		var boxB = indexBox.find(".boxB");
+
+		boxA.transition({opacity:0});
 		
-		for (var i = 1; i <= 4; i++) {
+		for (var i = 1; i <= 3; i++) {
 			var ele = boxB.find(".d"+i);
-			ele.transition({opacity:1,delay:2000+i*800},200);
+			ele.transition({opacity:1,delay:500 + (i-1)*1500},200,function(){
+				if(Voice) Voice.wxtips.play();
+			});
 		}
 
-		setTimeout(function(){
-			introBoxAnime();
-		},6000);		
+		var btn = boxB.find(".d4");
+		btn.transition({opacity:1,delay:500 + 3*1500},200,function(){
+			boxA.hide();
+			btn.find(".pdf").addClass("Emphasize2");
+			if(Voice) Voice.wxtips.play();
+		});
 	}
 	
 	/**
@@ -375,6 +426,9 @@ $(document).ready(function(){
 
 		introBox.show();
 		icom.fadeOut(indexBox);
+
+		ibgm.play();
+		$(".bgmBtn").show();
 		
 		title.addClass("tentering");
 

@@ -11,7 +11,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css?v=2" />
     <script src="js/base/base.js"></script>
     <script>
         ibase.init();
@@ -57,7 +57,7 @@
             </div>
             <img src="images/game/title.png" class="title">
             <div class="cont">
-                <div class="time">30:00</div>
+                <div class="time">15:00</div>
                 <div class="gameBox">
                     <img src="images/game/d.png" class="road">
                     <div id="game">
@@ -88,7 +88,7 @@
                 <div class="border"></div>
             </div>
             <img src="images/intro/t.png" class="title hide">
-            <img src="images/intro/w.png" class="word hide">
+            <img src="images/intro/w.png?v=2" class="word hide">
             <img src="images/intro/bt2.png" class="bed">
             <img src="images/intro/dan.png" class="dan none">
             <img src="images/intro/pd.png" class="danP hide">
@@ -99,14 +99,21 @@
             <div class="boxB ">
                 <img src="images/index/up.png" class="up">
                 <img src="images/index/d1.png" class="hide dialog d1">
-                <img src="images/index/d2.png" class="hide dialogm d2">
+                <div class="d2 hide dialogm">
+                    <img src="images/index/head.jpg" id="userHead">
+                    <img src="images/index/d2.png" class="word">
+                </div>
                 <img src="images/index/d3.png" class="hide dialog d3">
-                <img src="images/index/d4.png" class="hide dialog d4">
+                <div class="d4 hide dialog limitBtn">
+                    <img src="images/index/d4.png?v=1" class="head">
+                    <img src="images/index/d5.png" class="pdf">
+                </div>
                 <img src="images/index/down.png" class="dowm">
             </div>
             <div class="boxA ">
-                <img src="images/index/time.png" class="time">
+                <img src="images/index/time.png?v=1" class="time">
                 <img src="images/index/tips.png" class="tips hide">
+                <div class="enterBtn noPointer limitBtn"></div>
                 <img src="images/index/lock.png" class="lock">
             </div>
         </section>
@@ -122,7 +129,7 @@
     <script src="js/base/monitor.js"></script>
     <script src="js/base/share.js"></script>
     <script src="js/base/audio.js"></script>
-    <script src="js/plugs/game.js?v=1"></script>
+    <script src="js/plugs/game.js?v=5"></script>
     <script src="js/API.js"></script>
     <script>ibase.load('js/index.js');</script>
 </body>
