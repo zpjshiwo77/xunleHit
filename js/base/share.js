@@ -44,6 +44,9 @@ function importShare(){
 		 setHttpApi();
 		}
 
+		/**
+		 * 这里是jsDK验证的地方
+		 */
 		function  setHttpApi() {
 			$.getJSON("http://grazesheep.be-xx.com/api/jssdk/sign?callback=?",{appid:share.wxId,url:location.href}, function(data){
 				ApiConfig(data)
