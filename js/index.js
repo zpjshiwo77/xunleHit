@@ -174,14 +174,14 @@ $(document).ready(function () {
 		loader.addImage('images/intro/t.png');
 		loader.addImage('images/intro/w.png');
 		loader.addImage('images/index/bg.jpg');
-		loader.addImage('images/index/d1.png');
-		loader.addImage('images/index/d2.png');
-		loader.addImage('images/index/d3.png');
+		loader.addImage('images/index/d01.png');
+		loader.addImage('images/index/d02.png');
+		loader.addImage('images/index/d03.png');
 		loader.addImage('images/index/d4.png');
 		loader.addImage('images/index/d5.png');
 		loader.addImage('images/index/down.png');
 		loader.addImage('images/index/lock.png');
-		loader.addImage('images/index/time.png');
+		loader.addImage('images/index/time0.png');
 		loader.addImage('images/index/tips.png');
 		loader.addImage('images/index/up.png');
 		loader.addImage('images/index/head.jpg');
@@ -413,8 +413,8 @@ $(document).ready(function () {
 		var btnBox = resultBox.find(".btnBox");
 		var level = 3;
 
-		if (score < 20) level = 3;
-		else if (score >= 20 && score <= 40) level = 2;
+		if (score < 36) level = 3;
+		else if (score >= 36 && score <= 55) level = 2;
 		else level = 1;
 
 		title.removeClass("tentering")

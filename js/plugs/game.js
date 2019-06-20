@@ -40,7 +40,7 @@ var hitGame = function () {
             level = 3;
         },5000);
         setTimeout(function(){
-            _reSetInterval(250);
+            _reSetInterval(200);
             level = 4;
         },10000);
     }
@@ -102,7 +102,7 @@ var hitGame = function () {
     function _eggMove(item){
         var index = imath.randomRange(1, 3);
         var time = 1200 - level * 200;
-        var moveTime = 600 - level * 100;
+        var moveTime = 500 - level * 100;
         item.egg[0].src = "images/game/"+index+".png";
         item.eggBox.css({opacity:1});
         item.egg.transition({y:0},moveTime);
