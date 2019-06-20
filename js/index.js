@@ -21,8 +21,43 @@ $(document).ready(function () {
 			if (os.screenProp < 0.54) articleBox.addClass("screen189");
 			if (os.screenProp > 0.64) articleBox.addClass("screen159");
 			userInit();
+			shareInit();
 		});
 	}//edn func
+
+	function shareInit() {
+		var hrefs = window.location.href.split('?');
+		var dominUrl = hrefs[0].substr(0, hrefs[0].lastIndexOf('/') + 1);
+		$(document).Share({
+			//分享类型
+			type: "wechat",
+			//分享标题
+			title: ["翼起再战"],
+			//分享描述
+			desc: "翼起再战",
+			//分享配图
+			sharePic: [dominUrl+"images/share.jpg"],
+			//分享地址
+			shareLink: [location.href],
+			//分享接口（如需要）
+			shareApi: "http://wechat.dhteam.net/unionpay/webajax/wxshare.ashx",
+			//分享就绪
+			readyShare: function () { },
+			//分享平台接口功能（目前仅支持微信）
+			jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "hideMenuItems"],
+			//分享平台接口功能回调（目前仅支持微信）
+			jsApiFN: {
+				onMenuShareTimeline: [function () {
+					if (imonitor.add) imonitor.add({ label: '分享到朋友圈' });
+				}, function () { }, function () { }],
+				onMenuShareAppMessage: [function () {
+					if (imonitor.add) imonitor.add({ label: '分享给朋友' });
+				}, function () { }, function () { }]
+			},
+			//功能调试
+			debug: false
+		});
+	}
 
 	/**
 	 * 用户授权
