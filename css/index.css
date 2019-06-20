@@ -495,7 +495,30 @@ img{
 }
 /* shareBox end */
 /*---------------------------------------- 15:9 ----------------------*/
-
+.screen159 #indexBox .boxB .d1{
+	top: 1rem;
+}
+.screen159 #indexBox .boxB .d2{
+	top: 1.7rem;
+}
+.screen159 #indexBox .boxB .d3{
+	top: 2.45rem;
+}
+.screen159 #indexBox .boxB .d4{
+	top: 3.4rem;
+}
+.screen159 #introBox .word{
+	top: 2.2rem;
+}
+.screen159 #game{
+	padding-top: 0.1rem;
+}
+.screen159 #game .item{
+	margin-bottom: 0.35rem;
+}
+.screen159 #resultBox .topBox{
+	transform: scale(0.77,0.77);
+}
 /*---------------------------------------- 18:9 ----------------------*/
 .screen189 #introBox .word{
 	top: 3.1rem;
