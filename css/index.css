@@ -149,6 +149,20 @@ img{
 }
 /* anime end */
 
+#loadingBox{
+	background-color: #47b1be;
+}
+#loadingBox p{
+	position: absolute;
+	top: 45%;
+	width: 100%;
+	font-size: 0.24rem;
+	color: #000;
+	text-align: center;
+	letter-spacing: 0.01rem;
+}
+/* loadingBox end */
+
 #indexBox .boxA{
 	position: absolute;
 	top: 0;

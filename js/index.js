@@ -17,7 +17,6 @@ $(document).ready(function () {
 
 	function init() {
 		requestAnimationFrame(function () {
-			loadBox.show();
 			if (os.screenProp < 0.54) articleBox.addClass("screen189");
 			if (os.screenProp > 0.64) articleBox.addClass("screen159");
 			userInit();
@@ -211,14 +210,28 @@ $(document).ready(function () {
 			loader.addImage('images/game/gif/' + i + '.png');
 		}
 
+		loader.addProgressListener(function (e) {
+			var per = Math.round(e.completedCount / e.totalCount * 50);
+			$("#loadingBox p").html(per + '%');
+		});
+
+		articleBox.show();
 		loader.addCompletionListener(function () {
-			icom.fadeOut(loadBox);
-			articleBox.show();
-			pageInit();
+			load_timer(50);//模拟加载进度
 			loader = null;
 		});
 		loader.start();
 	}//end func
+
+	//模拟加载进度
+	function load_timer(per){
+		per=per||0;
+		per+=imath.randomRange(1,3);
+		per=per>100?100:per;
+		$("#loadingBox p").html(per+'%');
+		if(per==100) setTimeout(pageInit,200);
+		else setTimeout(load_timer,33,per);
+	}//edn func
 
 	//----------------------------------------页面逻辑代码----------------------------------------
 	var indexBox = $("#indexBox");
@@ -235,6 +248,7 @@ $(document).ready(function () {
 	 * 页面初始化
 	 */
 	function pageInit() {
+		icom.fadeOut($("#loadingBox"));
 		eventInit();
 		setTimeout(function () {
 			indexAnime();
