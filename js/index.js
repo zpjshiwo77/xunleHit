@@ -36,7 +36,7 @@ $(document).ready(function () {
 			//分享描述
 			desc: "翼起再战",
 			//分享配图
-			sharePic: [dominUrl+"images/share.jpg"],
+			sharePic: [dominUrl + "images/share.jpg"],
 			//分享地址
 			shareLink: [location.href],
 			//分享接口（如需要）
@@ -528,6 +528,10 @@ $(document).ready(function () {
 
 	//----------------------------------------页面监测代码----------------------------------------
 	function monitor_handler() {
-		//		imonitor.add({obj:$('a.btnTest'),action:'touchstart',category:'default',label:'测试按钮'});
+		imonitor.add({ obj: $('.enterBtn'), action: 'touchstart', category: 'default', label: '点击微信消息' });
+		imonitor.add({ obj: $('.d4'), action: 'touchstart', category: 'default', label: '点击pdf' });
+		imonitor.add({ obj: introBox.find('.btn'), action: 'touchstart', category: 'default', label: '点击我要挑战' });
+		imonitor.add({ obj: $('.againBtn'), action: 'touchstart', category: 'default', label: '点击再玩一次' });
+		imonitor.add({ obj: $('.shareBtn'), action: 'touchstart', category: 'default', label: '点击分享' });
 	}//end func
 });//end ready
