@@ -31,9 +31,9 @@ $(document).ready(function () {
 			//分享类型
 			type: "wechat",
 			//分享标题
-			title: ["翼起再战"],
+			title: ["【请查收！老板给你的特别任务书】"],
 			//分享描述
-			desc: "翼起再战",
+			desc: "谁是鸟厂破壳王？你敢来挑战吗！",
 			//分享配图
 			sharePic: [dominUrl + "images/share.jpg"],
 			//分享地址
