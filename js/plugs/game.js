@@ -9,6 +9,10 @@ var hitGame = function () {
     var interval = 1000;
     var level = 1;
     var voiceId = 1;
+    var deviation = icom.getQueryString('d') || 0;
+    var devNum = parseInt(deviation);
+    devNum = devNum > 100 ? 100 : devNum;
+    devNum = devNum < -200 ? -200 : devNum;
 
     /**
      * 初始化
@@ -32,15 +36,15 @@ var hitGame = function () {
         },interval);
 
         setTimeout(function(){
-            _reSetInterval(600);
+            _reSetInterval(600 - devNum);
             level = 2;
         },3000);
         setTimeout(function(){
-            _reSetInterval(350);
+            _reSetInterval(350 - devNum);
             level = 3;
         },5000);
         setTimeout(function(){
-            _reSetInterval(200);
+            _reSetInterval(250 - devNum);
             level = 4;
         },10000);
     }
@@ -101,8 +105,8 @@ var hitGame = function () {
      */
     function _eggMove(item){
         var index = imath.randomRange(1, 3);
-        var time = 1200 - level * 200;
-        var moveTime = 500 - level * 100;
+        var time = 1200 - devNum - level * 200;
+        var moveTime = 600 - devNum - level * 100;
         item.egg[0].src = "images/game/"+index+".png";
         item.eggBox.css({opacity:1});
         item.egg.transition({y:0},moveTime);
