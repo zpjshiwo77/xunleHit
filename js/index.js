@@ -35,7 +35,7 @@ $(document).ready(function () {
 			//分享描述
 			desc: "谁是鸟厂破壳王？你敢来挑战吗！",
 			//分享配图
-			sharePic: [dominUrl + "images/share.jpg"],
+			sharePic: [dominUrl + "images/share.jpg?v=1"],
 			//分享地址
 			shareLink: [location.href],
 			//分享接口（如需要）
